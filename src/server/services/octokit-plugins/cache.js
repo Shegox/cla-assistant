@@ -3,7 +3,7 @@ const memoryCache = require('memory-cache')
 
 
 function cache(octokit, OctokitOptions) {
-    octokit.hook.wrap("request", async (request, options) => {
+    octokit.hook.wrap('request', async (request, options) => {
         const cacheKeyObject = {
             options: options,
             OctokitOptions: OctokitOptions,
@@ -13,7 +13,7 @@ function cache(octokit, OctokitOptions) {
         if (cacheKey && !config.server.nocache) {
             const cachedRes = memoryCache.get(cacheKey)
             if (cachedRes) {
-                logger.info({cacheKey: options}, `Result returned from cache`)
+                logger.info({cacheKey: options}, 'Result returned from cache')
                 return cachedRes
             }
         }
