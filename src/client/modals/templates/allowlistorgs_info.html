@@ -2,23 +2,34 @@
     <div ng-click="cancel()" class="fa fa-times close-button"></div>
 
     <div class="free-space">
-        <h4>How does always allowing public members of organization work?</h4>
+        <h4>How does always allowing public members of an organization work?</h4>
         <div>
-            If
-            If a GitHub organization is included in the list to be always allowed, public members of this organization
-            will not be
-            required to sign a CLA. We retrieve the list of <bold>public members</bold> of an organization to check
-            this.
+            If an organization's username is added to the always allowed list, then members of this organization
+            will not be required to sign the CLA. Note that private memberships will not be detected because
+            the service queries the <bold>public members</bold> of the organization.
+        </div>
+        <h4>How is this different from the other "always allowed" setting?</h4>
+        <div>
+            The "usernames to be always allowed" setting also accepts organization usernames; however that setting
+            only applies to pull requests whose branch belongs to the specified organization.  By contrast, the
+            "public members" setting applies to any pull request, including branches from personal forks
+            and local branches.
         </div>
         <h4>Why always allow an organization?</h4>
         <div>
-            We see at least two use cases you may want to do so:
+            Here's two common use cases for this feature:
             <ul>
                 <li>
-                    You want your own organization members to not have to sign a CLA.
+                    Exempting your own members:  If an organization requires all of its members to sign
+                    employment contracts or other agreements that supersede the CLA terms, then the organization's
+                    own members should not be required to sign a CLA.  This works best when memberships are removed
+                    after the contracts terminate; for example when an employee leaves the company, removing their
+                    membership will ensure that they sign the CLA before making further contributions.
                 </li>
                 <li>
-                    You have a CLA in place with another organization and allowing their organization ensures that the individuals don't have to sign a CLA.
+                    A corporate agreement: You receive contributions from another company which has signed a
+                    contract that covers contributions from all of its members, and those members submit pull requests
+                    using personal forks.
                 </li>
             </ul>
         </div>

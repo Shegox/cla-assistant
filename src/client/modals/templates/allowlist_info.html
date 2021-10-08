@@ -5,7 +5,9 @@
         <h4>How does always allowing users work?</h4>
         <div>
             If a GitHub username is included in the list to be always allowed, they will not be
-            required to sign a CLA. This also applies to organization usernames.
+            required to sign a CLA. If an organization's username is included, the service checks whether
+            the pull request branch is from a repository or fork belonging to that organization: if so,
+            then the organization's members are not required to sign a CLA.
         </div>
         <h4>Why always allowing usernames?</h4>
         <div>
